@@ -20362,6 +20362,7 @@
 	var hashHistory = ReactRouter.hashHistory;
 	var Main = __webpack_require__(231);
 	var Home = __webpack_require__(232);
+	var PromptContainer = __webpack_require__(233);
 
 	var routes = React.createElement(
 		Router,
@@ -20369,7 +20370,9 @@
 		React.createElement(
 			Route,
 			{ path: '/', component: Main },
-			React.createElement(IndexRoute, { component: Home })
+			React.createElement(IndexRoute, { component: Home }),
+			React.createElement(Route, { path: '/playerOne', header: 'Player One', component: PromptContainer }),
+			React.createElement(Route, { path: '/playerTwo/:playerOne', header: 'Player Two', component: PromptContainer })
 		)
 	);
 
@@ -25933,6 +25936,57 @@
 	});
 
 	module.exports = Home;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(2);
+
+	var PromptContainer = React.createClass({
+		displayName: "PromptContainer",
+
+		render: function () {
+			return React.createElement(
+				"div",
+				{ className: "jumbotron col-sm-6 col-sm-offset-3 text-center" },
+				React.createElement(
+					"h1",
+					null,
+					" Some Header text "
+				),
+				React.createElement(
+					"div",
+					{ className: "col-sm-12" },
+					React.createElement(
+						"form",
+						null,
+						React.createElement(
+							"div",
+							{ className: "form-group" },
+							React.createElement("input", {
+								className: "form-control",
+								placeholder: "Github Username",
+								type: "test" })
+						),
+						React.createElement(
+							"div",
+							{ className: "form-group col-sm-4 col-sm-offset-4" },
+							React.createElement(
+								"button",
+								{
+									className: "btn btn-block btn-success",
+									type: "submit" },
+								"Continue"
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = PromptContainer;
 
 /***/ }
 /******/ ]);
